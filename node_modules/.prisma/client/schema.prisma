@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Client {
+  id         String   @id @default(uuid())
+  name       String
+  number     String?
+  address    String
+  document   String
+  created_at DateTime @default(now())
+
+  Lending Lending[]
+  @@map("clients")
+}
+
+model Lending {
+  id             String   @id @default(uuid())
+  client_id      String
+  client         Client   @relation(fields: [client_id], references: [id])
+  lending_value  Decimal
+  received_value Decimal
+  created_at     DateTime @default(now())
+
+  @@map("lendings")
+}
