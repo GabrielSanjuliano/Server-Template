@@ -36,25 +36,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.FindAllLendingController = void 0;
+exports.DeleteClientController = void 0;
 var prismaClient_1 = require("../database/prismaClient");
-var FindAllLendingController = /** @class */ (function () {
-    function FindAllLendingController() {
+var DeleteClientController = /** @class */ (function () {
+    function DeleteClientController() {
     }
-    FindAllLendingController.prototype.handle = function (req, res) {
+    DeleteClientController.prototype.handle = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var lendings;
+            var id, client;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, prismaClient_1.prismaClient.lending.findMany()];
+                    case 0:
+                        id = req.params.id;
+                        return [4 /*yield*/, prismaClient_1.prismaClient.client["delete"]({
+                                where: {
+                                    id: id
+                                }
+                            })];
                     case 1:
-                        lendings = _a.sent();
-                        return [2 /*return*/, res.json(lendings)];
+                        client = _a.sent();
+                        return [2 /*return*/, res.json(client)];
                 }
             });
         });
     };
-    return FindAllLendingController;
+    return DeleteClientController;
 }());
-exports.FindAllLendingController = FindAllLendingController;
-//# sourceMappingURL=FindAllLendingsController.js.map
+exports.DeleteClientController = DeleteClientController;
+//# sourceMappingURL=DeleteClientController.js.map

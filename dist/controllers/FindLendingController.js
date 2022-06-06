@@ -36,12 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.FindClientController = void 0;
+exports.FindLendingController = void 0;
 var prismaClient_1 = require("../database/prismaClient");
-var FindClientController = /** @class */ (function () {
-    function FindClientController() {
+var FindLendingController = /** @class */ (function () {
+    function FindLendingController() {
     }
-    FindClientController.prototype.handle = function (req, res) {
+    FindLendingController.prototype.handle = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var id, lending;
             return __generator(this, function (_a) {
@@ -60,7 +60,7 @@ var FindClientController = /** @class */ (function () {
             });
         });
     };
-    return FindClientController;
+    return FindLendingController;
 }());
-exports.FindClientController = FindClientController;
+exports.FindLendingController = FindLendingController;
 //# sourceMappingURL=FindLendingController.js.map
