@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import { prismaClient } from "../database/prismaClient";
 
 export class CreateLendingController {
-  async handle(request: Request, response: Response) {
-    const { client_id, lending_value, received_value } = request.body;
+  async handle(req: Request, res: Response) {
+    const { client_id, lending_value, received_value } = req.body;
 
     const lending = await prismaClient.lending.create({
       data: {
@@ -13,6 +13,6 @@ export class CreateLendingController {
       },
     });
 
-    return response.json(lending);
+    return res.json(lending);
   }
 }

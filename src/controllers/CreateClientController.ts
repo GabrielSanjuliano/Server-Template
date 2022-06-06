@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import { prismaClient } from "../database/prismaClient";
 
 export class CreateClientController {
-  async handle(request: Request, response: Response) {
-    const { name, number, address, document } = request.body;
+  async handle(req: Request, res: Response) {
+    const { name, number, address, document } = req.body;
 
     const client = await prismaClient.client.create({
       data: {
@@ -13,6 +13,6 @@ export class CreateClientController {
         document,
       },
     });
-    return response.json(client);
+    return res.json(client);
   }
 }

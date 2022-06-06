@@ -36,33 +36,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.CreateLendingController = void 0;
+exports.FindAllClientController = void 0;
 var prismaClient_1 = require("../database/prismaClient");
-var CreateLendingController = /** @class */ (function () {
-    function CreateLendingController() {
+var FindAllClientController = /** @class */ (function () {
+    function FindAllClientController() {
     }
-    CreateLendingController.prototype.handle = function (req, res) {
+    FindAllClientController.prototype.handle = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, client_id, lending_value, received_value, lending;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        _a = req.body, client_id = _a.client_id, lending_value = _a.lending_value, received_value = _a.received_value;
-                        return [4 /*yield*/, prismaClient_1.prismaClient.lending.create({
-                                data: {
-                                    client_id: client_id,
-                                    lending_value: lending_value,
-                                    received_value: received_value
-                                }
-                            })];
+            var clients;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, prismaClient_1.prismaClient.client.findMany()];
                     case 1:
-                        lending = _b.sent();
-                        return [2 /*return*/, res.json(lending)];
+                        clients = _a.sent();
+                        return [2 /*return*/, res.json(clients)];
                 }
             });
         });
     };
-    return CreateLendingController;
+    return FindAllClientController;
 }());
-exports.CreateLendingController = CreateLendingController;
-//# sourceMappingURL=CreateLendingController.js.map
+exports.FindAllClientController = FindAllClientController;
+//# sourceMappingURL=FindAllClientsController.js.map

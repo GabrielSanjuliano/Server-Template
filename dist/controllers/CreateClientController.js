@@ -41,13 +41,13 @@ var prismaClient_1 = require("../database/prismaClient");
 var CreateClientController = /** @class */ (function () {
     function CreateClientController() {
     }
-    CreateClientController.prototype.handle = function (request, response) {
+    CreateClientController.prototype.handle = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             var _a, name, number, address, document, client;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
-                        _a = request.body, name = _a.name, number = _a.number, address = _a.address, document = _a.document;
+                        _a = req.body, name = _a.name, number = _a.number, address = _a.address, document = _a.document;
                         return [4 /*yield*/, prismaClient_1.prismaClient.client.create({
                                 data: {
                                     name: name,
@@ -58,7 +58,7 @@ var CreateClientController = /** @class */ (function () {
                             })];
                     case 1:
                         client = _b.sent();
-                        return [2 /*return*/, response.json()];
+                        return [2 /*return*/, res.json(client)];
                 }
             });
         });
